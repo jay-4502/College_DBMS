@@ -1,0 +1,81 @@
+{% extends 'baselogin.html' %}
+{% block title %}Health Details {% endblock title %}
+{% block body %}
+ <h3 class="text-center"><span>Health Details</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">HEALTH ID</th>
+      <th scope="col">COVID VACCINE NAME</th>
+      <th scope="col">DOSES</th>
+      <th scope="col">MEDICATIONS</th>
+      <th scope="col">REGULAR_CHECKUP</th>
+      <th scope="col">EDIT</th>
+      <th scope="col">DELETE</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <div class="col-md-8">
+      <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://source.unsplash.com/600x1000/?medical,hospital" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body bg-dark">
+                <h5 class="card-title text-center bg-light">Student Data</h5>
+                <div class="card bg-dark" style="width: 28rem;">
+                  <ul class="list-group list-group-flush bg-dark">
+                    <li class="list-group-item">ID: <b>{{postdata.id}}</b> </li>
+                    <li class="list-group-item">Health id: <b>{{postdata.HRid}}</b> </li>
+                    <li class="list-group-item">Covid Vaccine name: <b>{{postdata.Covidvac}}</b></li>
+                    <li class="list-group-item">Doses:<b>{{postdata.Doses}}</b>  </li>
+                    <li class="list-group-item">Medications: <b>{{postdata.Medication}}</b> </li>
+                    <li class="list-group-item">Regular checkup:<b>{{postdata.Reg_checkup}}</b> </li>
+                    <li class="list-group-item"><a href="/hedit/{{postdata.id}}"><i class="fas fa-edit"></i></a> </i>
+                
+                        <a class="ml-4" confirm('Are you sure to Delete data'); href="/hdelete/{{postdata.id}}"><i class="fas fa-trash-alt"></i></a>
+                  </li>
+                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+  {% for post in query %}
+    <tr>
+      <th scope="row"> {{post.id}}</th>
+      <td>{{post.HRid}}</td>
+      <td>{{post.Covidvac}}</td>
+      <td>{{post.Doses}}</td>
+      <td>{{post.Medications}}</td>
+      <td>{{post.Reg_checkup}}</td>
+    <td><a href="/hedit/{{post.HRid}}"><button class="btn btn-primary">Edit </button> </a> </td>
+    <td><a href="/hdelete/{{post.HRid}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td>
+    </tr>
+{% endfor %}
+  
+  </tbody>
+</table>
+
+{% endblock body %}

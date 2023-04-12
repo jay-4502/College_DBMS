@@ -1,0 +1,66 @@
+
+{% extends 'baselogin.html' %}
+{% block title %}Student details{% endblock title %}
+{% block form %}
+
+
+<div class="row">
+<div class="col-md-4"></div>
+
+<div class="col-md-4">
+
+
+<br>
+<br>
+<h1>Student Details</h1>
+<div class="card p-3">
+
+<table class="table table-dark">
+  <thead>
+  <tr>
+  <th scope="col">DETAILS</th>
+   </tr>
+<tr>
+     <th scope="col">{{data.id}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.ccode}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.fname}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.lname}}</th>
+</tr>
+
+<tr>
+      <th scope="col">{{data.sem}}</th>
+</tr>
+      <th scope="col">{{data.Covidvac}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.Doses}}</th>
+    </tr>
+ 
+
+
+  </thead>
+
+
+      
+   
+    
+
+
+
+
+</div>
+</div>
+<div class="col-md-4"></div>
+
+</div>
+{% endblock form %}

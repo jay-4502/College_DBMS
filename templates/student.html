@@ -1,0 +1,77 @@
+{% extends "navbar.html" %}
+{% block title %}
+Add Student Information
+{% endblock title %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container mt-4">
+<div class="display-4 text-center text-info">Add Student Data</div>
+<br>
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="card">
+                {% include  "message.html" %}
+                <div class="card-body bg-light">
+                <form action="/sdetails" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="ccode" placeholder="Enter College Code" value="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="id" placeholder="Enter ID" value="" required>
+                    </div>
+            
+                    <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="fname" placeholder="Enter first name" value="" required>
+                    </div>
+                    
+                    <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="lname" placeholder="Enter last name" value="" required>
+                    </div>
+            
+                    <div class="form-group">
+                            <input type="number" class="form-control mt-2" name="sem" placeholder="Enter semester" value="" required>
+                    </div>
+            
+                    <div class="form-group">
+                            <input type="text" class="form-control mt-2" name="email"  placeholder="Enter email" value="" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="phno"  placeholder="Enter phone number" value="" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <select  class="form-control mt-2" id="gender" name="gender"  required>
+                            <option selected>Select Gender</option>
+                        
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                           
+                          </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="branch" placeholder="Enter branch" value="" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="aadharno" placeholder="Enter Aadhar number" value="" required>
+                    </div>
+            
+                    <br>
+                    <button class="btn btn-info" type="submit">Add</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+  {% endblock body %}  
